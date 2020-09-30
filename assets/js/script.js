@@ -59,29 +59,29 @@ function getWeather(){
        console.log(forecast.list[0].dt_txt);
        //$('#date1').text('Temperature: ' + forecast.list[0].main.temp + "F");
        $('#date1').text(forecast.list[0].dt_txt);
-       $('#icon1').after(img1);
+       $('#icon1').html(img1);
        $('#temp1').text('Temperature: ' + forecast.list[0].main.temp + "F");
        $('#humid1').text('Humidity: ' + forecast.list[0].main.humidity + "%");
-       
+       console.log(forecast.list[0].weather[0].icon);
        
        $('.title').text("5-Day Forecast");
        $('#date2').text(forecast.list[7].dt_txt); 
-       $('#icon2').after(img2);
+       $('#icon2').html(img2);
        $('#temp2').text('Temperature: ' + forecast.list[7].main.temp + "F");
        $('#humid2').text('Humidity: ' + forecast.list[7].main.humidity + "%");
        
        $('#date3').text(forecast.list[11].dt_txt);
-       $('#icon3').after(img3);
+       $('#icon3').html(img3);
        $('#temp3').text('Temperature: ' + forecast.list[11].main.temp + "F");
        $('#humid3').text('Humidity: ' + forecast.list[11].main.humidity + "%");
        
        $('#date4').text(forecast.list[19].dt_txt);
-       $('#icon4').after(img4);
+       $('#icon4').html(img4);
        $('#temp4').text('Temperature: ' + forecast.list[19].main.temp + "F");
        $('#humid4').text('Humidity: ' + forecast.list[19].main.humidity + "%");
     
        $('#date5').text(forecast.list[27].dt_txt);
-       $('#icon5').after(img5);
+       $('#icon5').html(img5);
        $('#temp5').text('Temperature: ' + forecast.list[27].main.temp + "F");
        $('#humid5').text('Humidity: ' + forecast.list[27].main.humidity + "%");
     
