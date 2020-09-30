@@ -31,18 +31,6 @@ function getWeather(){
            var iconURL= "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png"
            var img = $("<img>").attr("src", iconURL);
             $('#cityIcon').after(img);
-
-           var historyList = `<ul id="prev-search"></ul>`
-           var cityList = `<li>`
-           var cityName = response.name;
-           var getCity = localStorage.getItem('city');
-    
-           $('#search-history').html(historyList);
-           localStorage.setItem('city', cityName);
-            previousSearch = historyList += cityList;
-           $('#prev-search').html( previousSearch + getCity);
-
-           
            
 
         })
@@ -101,9 +89,27 @@ function getWeather(){
       
 }
 
+function getInput(){
+
+    var historyList = `<ul id="prev-search"></ul>`;
+    var cityList = `<li>`;
+    previousSearch = historyList += cityList;
+    var citySearch = $('#input-search').val();
+    localStorage.setItem('city', citySearch);
+    var getCity = localStorage.getItem('city');
+    $('#search-history').text(historyList);
+    $('#prev-search').html(previousSearch + getCity);
+    
+
+    console.log(citySearch);        
+           
+         
+}
+
 $('#search-btn').on('click', function(){
-   getWeather();  
-   var city = $('#input-search').val();
-   console.log(city);
+   getWeather(); 
+   getInput(); 
+   
+   
    
 });

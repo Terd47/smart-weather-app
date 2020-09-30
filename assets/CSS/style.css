@@ -18,5 +18,10 @@
     max-height: 200px;
     padding: 20px;
     margin: 30px;
+    box-shadow: rgb(30, 124, 128);
+    
 
+}
+body, h2 {
+    font-weight: 600;
 }
