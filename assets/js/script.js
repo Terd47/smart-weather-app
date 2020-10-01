@@ -89,27 +89,40 @@ function getWeather(){
       
 }
 
+var searchedCities = [];
+var historyList = `<ul id="prev-search"></ul>`;
+var citySearch = $('#input-search').val();
+
+function saveStorage(){
+    
+}
+
+function search () {
+  var citySearched = $('#input-search').val();
+  searchedCities.push(citySearched);
+}
+search();
+
 function getInput(){
 
-    var historyList = `<ul id="prev-search"></ul>`;
-    var cityList = `<li>`;
+   
+    $('#search-history').html(historyList);
     previousSearch = historyList += cityList;
-    var citySearch = $('#input-search').val();
     localStorage.setItem('city', citySearch);
     var getCity = localStorage.getItem('city');
-    $('#search-history').text(historyList);
-    $('#prev-search').html(previousSearch + getCity);
-    
+    var cityList = $('#prev-search').append(`<li> ${getCity} </li>`);
 
-    console.log(citySearch);        
+
+      
+    console.log(citySearch);
+    console.log(getCity);        
            
          
 }
+getInput();
 
 $('#search-btn').on('click', function(){
    getWeather(); 
    getInput(); 
-   
-   
    
 });
