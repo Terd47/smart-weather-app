@@ -90,27 +90,25 @@ function getWeather(){
 }
 
 var searchedCities = [];
-var historyList = `<ul id="prev-search"></ul>`;
-var citySearch = $('#input-search').val();
-
-function saveStorage(){
-    
-}
-
 function search () {
   var citySearched = $('#input-search').val();
+  
   searchedCities.push(citySearched);
 }
-search();
 
-function getInput(){
+console.log(searchedCities);
+var historyList = `<ul id="prev-search"></ul>`;
+$('#search-history').html(historyList);
 
-   
-    $('#search-history').html(historyList);
+function getInput(){ 
     previousSearch = historyList += cityList;
-    localStorage.setItem('city', citySearch);
-    var getCity = localStorage.getItem('city');
+    var searchCity = [];
+    var citySearch = $('#input-search').val();
+    localStorage.setItem(citySearch, citySearch);
+    var getCity = localStorage.getItem(citySearch);
     var cityList = $('#prev-search').append(`<li> ${getCity} </li>`);
+
+
 
 
       
@@ -124,5 +122,6 @@ getInput();
 $('#search-btn').on('click', function(){
    getWeather(); 
    getInput(); 
+   search();
    
 });
